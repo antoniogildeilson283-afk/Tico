@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Código Aleatório</title>
+    <style>
+        /* Estilização para deixar o site bonito */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+        }
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 350px;
+        }
+        h1 { color: #333; font-size: 1.5rem; }
+        .display-codigo {
+            background: #f0f0f0;
+            margin: 20px 0;
+            padding: 15px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 5px;
+            color: #444;
+            border-radius: 8px;
+            border: 2px dashed #bbb;
+            min-height: 40px;
+        }
+        button {
+            background: #6e8efb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #5a7be2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Gerador de Voucher</h1>
+        <div class="display-codigo" id="resultado">------</div>
+        <button onclick="gerarCodigo()">Gerar Novo Código</button>
+    </div>
+
+    <script>
+        // Função que gera a sequência aleatória
+        function gerarCodigo() {
+            const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let codigo = '';
+            const tamanho = 8; // Você pode mudar o tamanho do código aqui
+
+            for (let i = 0; i < tamanho; i++) {
+                const indiceAleatorio = Math.floor(Math.random() * caracteres.length);
+                codigo += caracteres.charAt(indiceAleatorio);
+            }
+
+            // Exibe o código na tela
+            document.getElementById('resultado').innerText = codigo;
+        }
+    </script>
+
+</body>
+</html>
